@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-gameflow-sans);
+  --font-mono: var(--font-gameflow-mono);
+  --font-heading: var(--font-gameflow-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --font-gameflow-sans:
+    "Avenir Next", "IBM Plex Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-gameflow-mono:
+    "SFMono-Regular", "SF Mono", "Menlo", "Consolas", monospace;
+  --background: oklch(0.12 0.012 255);
+  --foreground: oklch(0.96 0.01 250);
+  --card: oklch(0.165 0.012 252);
+  --card-foreground: oklch(0.96 0.01 250);
+  --popover: oklch(0.165 0.012 252);
+  --popover-foreground: oklch(0.96 0.01 250);
+  --primary: oklch(0.8 0.13 155);
+  --primary-foreground: oklch(0.15 0.012 255);
+  --secondary: oklch(0.23 0.012 252);
+  --secondary-foreground: oklch(0.93 0.01 250);
+  --muted: oklch(0.2 0.012 252);
+  --muted-foreground: oklch(0.72 0.018 248);
+  --accent: oklch(0.24 0.028 205);
+  --accent-foreground: oklch(0.96 0.01 250);
+  --destructive: oklch(0.68 0.2 24);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.8 0.13 155 / 60%);
+  --chart-1: oklch(0.8 0.13 155);
+  --chart-2: oklch(0.72 0.11 215);
+  --chart-3: oklch(0.78 0.14 85);
+  --chart-4: oklch(0.65 0.17 30);
+  --chart-5: oklch(0.74 0.15 320);
+  --radius: 0.8rem;
+  --sidebar: oklch(0.145 0.014 252);
+  --sidebar-foreground: oklch(0.96 0.01 250);
+  --sidebar-primary: oklch(0.8 0.13 155);
+  --sidebar-primary-foreground: oklch(0.15 0.012 255);
+  --sidebar-accent: oklch(0.22 0.026 205);
+  --sidebar-accent-foreground: oklch(0.96 0.01 250);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.8 0.13 155 / 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply h-full scroll-smooth font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-full;
+    background-image:
+      radial-gradient(circle at top, rgba(88, 242, 174, 0.12), transparent 30%),
+      radial-gradient(circle at right, rgba(61, 146, 255, 0.1), transparent 26%),
+      linear-gradient(180deg, #071019 0%, #09121b 42%, #060b12 100%);
+  }
+
+  ::selection {
+    background: rgba(132, 255, 192, 0.25);
+    color: white;
+  }
+}
+
+@layer components {
+  .gf-surface {
+    @apply rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.03))] shadow-[0_24px_80px_rgba(3,8,20,0.28)] backdrop-blur-xl;
+  }
+
+  .gf-surface-muted {
+    @apply rounded-[1.5rem] border border-white/8 bg-black/20 backdrop-blur-sm;
+  }
+
+  .gf-surface-strong {
+    @apply rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(10,18,28,0.92),rgba(8,13,21,0.88))] shadow-[0_28px_90px_rgba(2,6,23,0.34)] backdrop-blur-xl;
+  }
+
+  .gf-accent-surface {
+    @apply rounded-[1.75rem] border border-emerald-400/15 bg-[linear-gradient(180deg,rgba(16,33,29,0.96),rgba(7,14,13,0.92))] shadow-[0_24px_80px_rgba(2,10,9,0.28)];
+  }
+
+  .gf-stat-card {
+    @apply rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.03))] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-sm;
+  }
+
+  .gf-pill {
+    @apply rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-xs font-medium text-slate-200;
+  }
+
+  .gf-input {
+    @apply h-11 rounded-2xl border border-white/10 bg-slate-950/50 px-4 text-sm text-white outline-none transition focus:border-emerald-300/35 focus:ring-4 focus:ring-emerald-300/10;
+  }
+
+  .gf-section-title {
+    @apply text-xl font-semibold tracking-tight text-white;
+  }
+
+  .gf-section-copy {
+    @apply mt-1 text-sm leading-6 text-slate-400;
+  }
+}
